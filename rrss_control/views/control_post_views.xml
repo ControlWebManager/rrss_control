@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="rrss_control_post_tree" model="ir.ui.view">
+            <field name="name">rrss_control.post.tree</field>
+            <field name="model">control.post</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="product_id" options='{"no_open": True}'/>
+                    <field name="name"/>
+                    <field name="date_publish"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rrss_control_post_form" model="ir.ui.view">
+            <field name="name">rrss_control.post.form</field>
+            <field name="model">control.post</field>
+            <field name="arch" type="xml">
+                <form string="Actividad Realizada RRSS">
+                    <sheet>
+                        <group string="Carga de Actividades">
+                            <group>
+                                <field name="product_id" options="{&quot;no_open&quot;: True}"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date_publish" />
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_control_post" model="ir.actions.act_window">
+            <field name="name">Control Post General</field>
+            <field name="res_model">control.post</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+       <!-- Top menu item -->
+        <menuitem name="Control RRSS"
+            id="menu_rrss_control"
+            sequence="50"/>
+
+        <menuitem id="menu_control_post_view_tree" name="Tree Post"
+                sequence="1" parent="menu_rrss_control" action="action_control_post" />
+
+
+
+    </data>
+</odoo>
